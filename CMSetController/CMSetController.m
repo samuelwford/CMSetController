@@ -15,7 +15,7 @@ static void * const kCMItemContext = (void *)@"com.causticmango.CMSetController.
 
 #pragma mark - Hidden Class - _CMSectionHolder
 
-@interface _CMSectionHolder : NSObject <CMSetQuerySectionInfo> {
+@interface _CMSectionHolder : NSObject <CMSetControllerSectionInfo> {
 @public
     NSRange _range;
 }
@@ -205,7 +205,7 @@ static void * const kCMItemContext = (void *)@"com.causticmango.CMSetController.
                                                              forKeys:[NSArray arrayWithObjects:NSLocalizedDescriptionKey, NSLocalizedFailureReasonErrorKey, nil]];
         
         *error = [NSError errorWithDomain:kCMSetControllerErrorDomain 
-                                     code:[exception.reason isEqualToString:NSInternalInconsistencyException] ? CMSetQueryInconsistentStateError : CMSetQueryFailedError
+                                     code:[exception.reason isEqualToString:NSInternalInconsistencyException] ? CMSetControllerInconsistentStateError : CMSetControllerFailedError
                                  userInfo:userInfo];
     }
     @finally {
@@ -471,7 +471,7 @@ static void * const kCMItemContext = (void *)@"com.causticmango.CMSetController.
                         NSInteger row = indexOfItem - section->_range.location;
                         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:indexOfSection];
                         
-                        [_delegate controller:self didChangeObject:item atIndexPath:nil forChangeType:CMSetQueryChangeInsert newIndexPath:indexPath];
+                        [_delegate controller:self didChangeObject:item atIndexPath:nil forChangeType:CMSetControllerChangeInsert newIndexPath:indexPath];
                     }
                 }
                 break;
@@ -509,7 +509,7 @@ static void * const kCMItemContext = (void *)@"com.causticmango.CMSetController.
                             [_delegate controller:self 
                                  didChangeSection:section 
                                           atIndex:indexOfSection 
-                                    forChangeType:CMSetQueryChangeDelete];
+                                    forChangeType:CMSetControllerChangeDelete];
                         }
                     }
                     
@@ -518,7 +518,7 @@ static void * const kCMItemContext = (void *)@"com.causticmango.CMSetController.
                         NSInteger row = indexOfItem - section->_range.location;
                         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:indexOfSection];
                         
-                        [_delegate controller:self didChangeObject:item atIndexPath:indexPath forChangeType:CMSetQueryChangeDelete newIndexPath:nil];
+                        [_delegate controller:self didChangeObject:item atIndexPath:indexPath forChangeType:CMSetControllerChangeDelete newIndexPath:nil];
                     }
                 }
                 break;                
@@ -583,7 +583,7 @@ static void * const kCMItemContext = (void *)@"com.causticmango.CMSetController.
             [_delegate controller:self
                  didChangeSection:section
                           atIndex:sectionIndex + sectionAdjustment
-                    forChangeType:CMSetQueryChangeInsert];
+                    forChangeType:CMSetControllerChangeInsert];
         }
 
         // if the original section is empty, remove it
@@ -594,7 +594,7 @@ static void * const kCMItemContext = (void *)@"com.causticmango.CMSetController.
                 [_delegate controller:self
                      didChangeSection:originalSection
                               atIndex:originalIndexOfSection
-                        forChangeType:CMSetQueryChangeDelete];
+                        forChangeType:CMSetControllerChangeDelete];
             }
         }
         
@@ -609,7 +609,7 @@ static void * const kCMItemContext = (void *)@"com.causticmango.CMSetController.
             [_delegate controller:self 
                   didChangeObject:object 
                       atIndexPath:indexPath 
-                    forChangeType:CMSetQueryChangeMove 
+                    forChangeType:CMSetControllerChangeMove 
                      newIndexPath:newIndexPath];
         }
     } else {

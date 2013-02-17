@@ -33,7 +33,7 @@
 
 @end
 
-@protocol CMSetQuerySectionInfo <NSObject>
+@protocol CMSetControllerSectionInfo <NSObject>
 
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) NSUInteger numberOfObjects;
@@ -44,21 +44,21 @@
 @protocol CMSetControllerDelegate <NSObject>
 
 enum {
-    CMSetQueryChangeInsert = 1,
-    CMSetQueryChangeDelete = 2,
-    CMSetQueryChangeMove = 3,
-    CMSetQueryChangeUpdate = 4
+    CMSetControllerChangeInsert = 1,
+    CMSetControllerChangeDelete = 2,
+    CMSetControllerChangeMove = 3,
+    CMSetControllerChangeUpdate = 4
 };
-typedef NSUInteger CMSetQueryChangeType;
+typedef NSUInteger CMSetControllerChangeType;
 
 @optional
 - (void)controllerWillChangeContent:(CMSetController *)controller;
 
 @optional
-- (void)controller:(CMSetController *)controller didChangeObject:(id)object atIndexPath:(NSIndexPath *)indexPath forChangeType:(CMSetQueryChangeType)type newIndexPath:(NSIndexPath *)newIndexPath;
+- (void)controller:(CMSetController *)controller didChangeObject:(id)object atIndexPath:(NSIndexPath *)indexPath forChangeType:(CMSetControllerChangeType)type newIndexPath:(NSIndexPath *)newIndexPath;
 
 @optional
-- (void)controller:(CMSetController *)controller didChangeSection:(id<CMSetQuerySectionInfo>)sectionInfo atIndex:(NSUInteger)index forChangeType:(CMSetQueryChangeType)type;
+- (void)controller:(CMSetController *)controller didChangeSection:(id<CMSetControllerSectionInfo>)sectionInfo atIndex:(NSUInteger)index forChangeType:(CMSetControllerChangeType)type;
 
 @optional
 - (void)controllerDidChangeContent:(CMSetController *)controller;
@@ -66,6 +66,6 @@ typedef NSUInteger CMSetQueryChangeType;
 @end
 
 enum {
-    CMSetQueryInconsistentStateError = 1,
-    CMSetQueryFailedError = 2
+    CMSetControllerInconsistentStateError = 1,
+    CMSetControllerFailedError = 2
 };
