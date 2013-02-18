@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMDocument.h"
 
 @interface CMDetailViewController : UITableViewController <UISplitViewControllerDelegate>
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) CMDocument *document;
 
 @end

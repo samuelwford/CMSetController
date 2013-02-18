@@ -7,8 +7,8 @@
 //
 
 #import "CMMasterViewController.h"
-
 #import "CMDetailViewController.h"
+#import "CMDocument.h"
 
 @interface CMMasterViewController () {
     NSMutableArray *_objects;
@@ -51,9 +51,19 @@
     if (!_objects) {
         _objects = [[NSMutableArray alloc] init];
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
+
+    static NSInteger count = 0;
+    
+    CMDocument *newDocument = [[CMDocument alloc] init];
+    newDocument.name = [NSString stringWithFormat:@"Document %d", ++count];
+    
+    [newDocument addFriendsObject:[CMFriend friendWithName:@"sally" favoriteColor:@"red" rating:[NSNumber numberWithInt:1]]];
+    [newDocument addFriendsObject:[CMFriend friendWithName:@"april" favoriteColor:@"red" rating:[NSNumber numberWithInt:1]]];
+    [newDocument addFriendsObject:[CMFriend friendWithName:@"bill" favoriteColor:@"blue" rating:[NSNumber numberWithInt:1]]];
+    
+    [_objects insertObject:newDocument atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Table View
@@ -82,8 +92,8 @@
     }
 
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    CMDocument *object = [_objects objectAtIndex:indexPath.row];
+    cell.textLabel.text = [object name];
     return cell;
 }
 
@@ -121,15 +131,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDate *object = _objects[indexPath.row];
+    CMDocument *document = _objects[indexPath.row];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
 	    if (!self.detailViewController) {
 	        self.detailViewController = [[CMDetailViewController alloc] initWithStyle:UITableViewStylePlain];
 	    }
-	    self.detailViewController.detailItem = object;
+	    self.detailViewController.document = document;
         [self.navigationController pushViewController:self.detailViewController animated:YES];
     } else {
-        self.detailViewController.detailItem = object;
+        self.detailViewController.document = document;
     }
 }
 

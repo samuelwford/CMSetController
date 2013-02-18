@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DF7127268AF4C1394EAFEB6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9C3489569A489882149965 /* libPods.a */; };
 		327073A116D16A3400CF0942 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327073A016D16A3400CF0942 /* UIKit.framework */; };
 		327073A316D16A3400CF0942 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327073A216D16A3400CF0942 /* Foundation.framework */; };
 		327073A516D16A3400CF0942 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327073A416D16A3400CF0942 /* CoreGraphics.framework */; };
@@ -23,6 +24,10 @@
 		327073D316D16A3500CF0942 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327073A216D16A3400CF0942 /* Foundation.framework */; };
 		327073DB16D16A3500CF0942 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 327073D916D16A3500CF0942 /* InfoPlist.strings */; };
 		327073DE16D16A3500CF0942 /* CMSetControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 327073DD16D16A3500CF0942 /* CMSetControllerTests.m */; };
+		327073EB16D1A49200CF0942 /* CMDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 327073E816D1A49200CF0942 /* CMDocument.m */; };
+		327073EC16D1A49200CF0942 /* CMDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 327073E816D1A49200CF0942 /* CMDocument.m */; };
+		327073ED16D1A49200CF0942 /* CMFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 327073EA16D1A49200CF0942 /* CMFriend.m */; };
+		327073EE16D1A49200CF0942 /* CMFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 327073EA16D1A49200CF0942 /* CMFriend.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +42,9 @@
 
 /* Begin PBXFileReference section */
 		3270739D16D16A3400CF0942 /* CMSetController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMSetController.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		327073A016D16A3400CF0942 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		327073A216D16A3400CF0942 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		327073A416D16A3400CF0942 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		327073A016D16A3400CF0942 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		327073A216D16A3400CF0942 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		327073A416D16A3400CF0942 /* CoreGraphics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		327073A816D16A3400CF0942 /* CMSetController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CMSetController-Info.plist"; sourceTree = "<group>"; };
 		327073AA16D16A3400CF0942 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		327073AC16D16A3400CF0942 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -59,6 +64,12 @@
 		327073DA16D16A3500CF0942 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		327073DC16D16A3500CF0942 /* CMSetControllerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMSetControllerTests.h; sourceTree = "<group>"; };
 		327073DD16D16A3500CF0942 /* CMSetControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMSetControllerTests.m; sourceTree = "<group>"; };
+		327073E716D1A49200CF0942 /* CMDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDocument.h; sourceTree = "<group>"; };
+		327073E816D1A49200CF0942 /* CMDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDocument.m; sourceTree = "<group>"; };
+		327073E916D1A49200CF0942 /* CMFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMFriend.h; sourceTree = "<group>"; };
+		327073EA16D1A49200CF0942 /* CMFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFriend.m; sourceTree = "<group>"; };
+		59FA8322211F4971BD772CCD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		DA9C3489569A489882149965 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +80,7 @@
 				327073A116D16A3400CF0942 /* UIKit.framework in Frameworks */,
 				327073A316D16A3400CF0942 /* Foundation.framework in Frameworks */,
 				327073A516D16A3400CF0942 /* CoreGraphics.framework in Frameworks */,
+				0DF7127268AF4C1394EAFEB6 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +104,7 @@
 				327073D616D16A3500CF0942 /* CMSetControllerTests */,
 				3270739F16D16A3400CF0942 /* Frameworks */,
 				3270739E16D16A3400CF0942 /* Products */,
+				59FA8322211F4971BD772CCD /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +124,7 @@
 				327073A216D16A3400CF0942 /* Foundation.framework */,
 				327073A416D16A3400CF0942 /* CoreGraphics.framework */,
 				327073D016D16A3500CF0942 /* SenTestingKit.framework */,
+				DA9C3489569A489882149965 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,12 +132,10 @@
 		327073A616D16A3400CF0942 /* CMSetController */ = {
 			isa = PBXGroup;
 			children = (
+				327073F016D1A4A500CF0942 /* Controllers */,
+				327073EF16D1A49800CF0942 /* Models */,
 				327073AF16D16A3400CF0942 /* CMAppDelegate.h */,
 				327073B016D16A3500CF0942 /* CMAppDelegate.m */,
-				327073B816D16A3500CF0942 /* CMMasterViewController.h */,
-				327073B916D16A3500CF0942 /* CMMasterViewController.m */,
-				327073BB16D16A3500CF0942 /* CMDetailViewController.h */,
-				327073BC16D16A3500CF0942 /* CMDetailViewController.m */,
 				327073A716D16A3400CF0942 /* Supporting Files */,
 			);
 			path = CMSetController;
@@ -162,6 +174,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		327073EF16D1A49800CF0942 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				327073E716D1A49200CF0942 /* CMDocument.h */,
+				327073E816D1A49200CF0942 /* CMDocument.m */,
+				327073E916D1A49200CF0942 /* CMFriend.h */,
+				327073EA16D1A49200CF0942 /* CMFriend.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		327073F016D1A4A500CF0942 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				327073B816D16A3500CF0942 /* CMMasterViewController.h */,
+				327073B916D16A3500CF0942 /* CMMasterViewController.m */,
+				327073BB16D16A3500CF0942 /* CMDetailViewController.h */,
+				327073BC16D16A3500CF0942 /* CMDetailViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,6 +206,7 @@
 				3270739916D16A3400CF0942 /* Sources */,
 				3270739A16D16A3400CF0942 /* Frameworks */,
 				3270739B16D16A3400CF0942 /* Resources */,
+				F440FD53374C4CDAB06D038E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,6 +300,20 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		F440FD53374C4CDAB06D038E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -276,6 +325,8 @@
 				327073B116D16A3500CF0942 /* CMAppDelegate.m in Sources */,
 				327073BA16D16A3500CF0942 /* CMMasterViewController.m in Sources */,
 				327073BD16D16A3500CF0942 /* CMDetailViewController.m in Sources */,
+				327073EB16D1A49200CF0942 /* CMDocument.m in Sources */,
+				327073ED16D1A49200CF0942 /* CMFriend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +335,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				327073DE16D16A3500CF0942 /* CMSetControllerTests.m in Sources */,
+				327073EC16D1A49200CF0942 /* CMDocument.m in Sources */,
+				327073EE16D1A49200CF0942 /* CMFriend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +430,7 @@
 		};
 		327073E216D16A3500CF0942 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59FA8322211F4971BD772CCD /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CMSetController/CMSetController-Prefix.pch";
@@ -388,6 +442,7 @@
 		};
 		327073E316D16A3500CF0942 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59FA8322211F4971BD772CCD /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CMSetController/CMSetController-Prefix.pch";
@@ -450,6 +505,7 @@
 				327073E316D16A3500CF0942 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		327073E416D16A3500CF0942 /* Build configuration list for PBXNativeTarget "CMSetControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +514,7 @@
 				327073E616D16A3500CF0942 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

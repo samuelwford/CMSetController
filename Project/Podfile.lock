@@ -1,6 +1,15 @@
 
-PODS: []
+PODS:
+- CMSetController (0.1.0)
 
-DEPENDENCIES: []
+DEPENDENCIES:
+- CMSetController (from `..')
+
+EXTERNAL SOURCES:
+  CMSetController:
+    :local: ..
+
+SPEC CHECKSUMS:
+  CMSetController: 78a8110cb0039d1ba4160498b6b9f1814f57a4b0
 
 COCOAPODS: 0.15.1
