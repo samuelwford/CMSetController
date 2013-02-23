@@ -7,7 +7,8 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import <CMSetController/CMSetController.h>
 
-@interface CMSetControllerTests : SenTestCase
+@interface CMSetControllerTests : SenTestCase <CMSetControllerDelegate>
 
 @end

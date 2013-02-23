@@ -1,9 +1,9 @@
 //
 //  CMDocumentObserverTests.m
-//  SetQuerySample
+//  CMSetControllerTests
 //
-//  Created by Samuel Ford on 4/2/12.
-//  Copyright (c) 2012 Dycom Inc. All rights reserved.
+//  Created by Samuel Ford on 2/17/13.
+//  Copyright (c) 2013 Samuel Ford. All rights reserved.
 //
 
 #import "CMDocumentObserverTests.h"
@@ -28,7 +28,7 @@ static void * const kItemContext = (void *)@"com.causticmango.CMDocumentObserver
 
 /* 
  * These tests are less about testing CMDocument and more about testing the way we understand KVO to work over a set.
- * The asserts in these tests represent the expectations of the CMSetQueryController implementation and are more like
+ * The asserts in these tests represent the expectations of the CMSetController implementation and are more like
  * "proving grounds" for the controller design.
  */
 

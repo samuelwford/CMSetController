@@ -460,6 +460,7 @@
 		};
 		327073E516D16A3500CF0942 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59FA8322211F4971BD772CCD /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CMSetController.app/CMSetController";
 				FRAMEWORK_SEARCH_PATHS = (
