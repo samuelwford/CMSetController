@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0DF7127268AF4C1394EAFEB6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9C3489569A489882149965 /* libPods.a */; };
+		3225FFEB16D9170200B274E2 /* CMDocumentObserverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3225FFEA16D9170200B274E2 /* CMDocumentObserverTests.m */; };
 		327073A116D16A3400CF0942 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327073A016D16A3400CF0942 /* UIKit.framework */; };
 		327073A316D16A3400CF0942 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327073A216D16A3400CF0942 /* Foundation.framework */; };
 		327073A516D16A3400CF0942 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327073A416D16A3400CF0942 /* CoreGraphics.framework */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3225FFE916D9170200B274E2 /* CMDocumentObserverTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDocumentObserverTests.h; sourceTree = "<group>"; };
+		3225FFEA16D9170200B274E2 /* CMDocumentObserverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDocumentObserverTests.m; sourceTree = "<group>"; };
 		3270739D16D16A3400CF0942 /* CMSetController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMSetController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		327073A016D16A3400CF0942 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		327073A216D16A3400CF0942 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -158,6 +161,8 @@
 		327073D616D16A3500CF0942 /* CMSetControllerTests */ = {
 			isa = PBXGroup;
 			children = (
+				3225FFE916D9170200B274E2 /* CMDocumentObserverTests.h */,
+				3225FFEA16D9170200B274E2 /* CMDocumentObserverTests.m */,
 				327073DC16D16A3500CF0942 /* CMSetControllerTests.h */,
 				327073DD16D16A3500CF0942 /* CMSetControllerTests.m */,
 				327073D716D16A3500CF0942 /* Supporting Files */,
@@ -337,6 +342,7 @@
 				327073DE16D16A3500CF0942 /* CMSetControllerTests.m in Sources */,
 				327073EC16D1A49200CF0942 /* CMDocument.m in Sources */,
 				327073EE16D1A49200CF0942 /* CMFriend.m in Sources */,
+				3225FFEB16D9170200B274E2 /* CMDocumentObserverTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
