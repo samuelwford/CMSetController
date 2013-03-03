@@ -110,11 +110,8 @@ NSString  * const CellIdentifier = @"CellIdentifier";
             break;
             
         case CMSetControllerChangeUpdate:
-        {
-            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-            [self configureCell:cell atIndexPath:indexPath];
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
-        }
             
         case CMSetControllerChangeMove:
             [self.tableView deleteRowsAtIndexPaths:@[indexPath]

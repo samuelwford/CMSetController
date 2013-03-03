@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary  = 'KVO based controller for an NSSet similar to NSFetchedResultController.'
   s.homepage = 'http://github.com/causticmango/CMSetController'
   s.author   = { 'Samuel Ford' => 'samuel.ford@icloud.com' }
-  s.source   = { :local => '.' }
+  s.source   = { :git => 'https://github.com/causticmango/CMSetController.git', :tag => s.version.to_s }
   s.description  = 'Uses KVO to mediate changes to an NSSet very similar to an NSFetchedResultController with sorting and grouping without the need for CoreData.'
   s.source_files = 'CMSetController/**/*.{h,m}'
   s.framework = 'Foundation'
