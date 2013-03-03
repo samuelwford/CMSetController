@@ -39,15 +39,15 @@
     
     if (self.document) {
         
-        NSArray *paths = [NSArray arrayWithObjects:@"name", @"favoriteColor", nil];
-        NSArray *sorts = [NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil];
+        NSArray *paths = @[@"name", @"favoriteColor"];
+        NSArray *sorts = @[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
         
         _setController = [[CMSetController alloc] initWithObserved:self.document
-                                                               setKeyPath:@"friends"
-                                                                 keyPaths:paths
-                                                       sectionNameKeyPath:@"favoriteColor"
-                                                          sortDescriptors:sorts
-                                                                 delegate:self];
+                                                        setKeyPath:@"friends"
+                                                          keyPaths:paths
+                                                sectionNameKeyPath:@"favoriteColor"
+                                                   sortDescriptors:sorts
+                                                          delegate:self];
         
         NSError *error;
         if (![_setController performQuery:&error]) {
@@ -94,12 +94,12 @@
 {
     switch (type) {
         case CMSetControllerChangeInsert:
-            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath]
                                   withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
             
         case CMSetControllerChangeDelete:
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath]
                                   withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
             
@@ -111,9 +111,9 @@
         }
             
         case CMSetControllerChangeMove:
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath]
                                   withRowAnimation:UITableViewRowAnimationFade];
-            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath]
                                   withRowAnimation:UITableViewRowAnimationFade];
             break;
             
@@ -172,11 +172,11 @@
     static NSArray *colors;
     
     if (!names) {
-        names = [NSArray arrayWithObjects:@"john", @"sue", @"bill", @"tom", @"shye", @"evie", @"sam", @"adam", nil];
+        names = @[@"john", @"sue", @"bill", @"tom", @"shye", @"evie", @"sam", @"adam"];
     }
     
     if (!colors) {
-        colors = [NSArray arrayWithObjects:@"red", @"orange", @"yellow", @"green", @"blue", @"indigo", @"violet", nil];
+        colors = @[@"red", @"orange", @"yellow", @"green", @"blue", @"indigo", @"violet"];
     }
     
     CMFriend *friend = [[[[_setController sections] objectAtIndex:indexPath.section] objects] objectAtIndex:indexPath.row];

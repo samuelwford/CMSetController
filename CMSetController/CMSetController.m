@@ -201,9 +201,7 @@ static void * const kCMItemContext = (void *)@"com.causticmango.CMSetController.
         success = YES;
     }
     @catch (NSException *exception) {
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:exception.name, exception.reason, nil]
-                                                             forKeys:[NSArray arrayWithObjects:NSLocalizedDescriptionKey, NSLocalizedFailureReasonErrorKey, nil]];
-        
+        NSDictionary *userInfo = @{NSLocalizedDescriptionKey: exception.name, NSLocalizedFailureReasonErrorKey: exception.reason};
         *error = [NSError errorWithDomain:kCMSetControllerErrorDomain 
                                      code:[exception.reason isEqualToString:NSInternalInconsistencyException] ? CMSetControllerInconsistentStateError : CMSetControllerFailedError
                                  userInfo:userInfo];

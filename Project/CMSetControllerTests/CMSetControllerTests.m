@@ -43,20 +43,19 @@
 
 - (void)controller:(CMSetController *)controller didChangeObject:(id)object atIndexPath:(NSIndexPath *)indexPath forChangeType:(CMSetControllerChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
 {
-    NSArray *values = [NSArray arrayWithObjects:object, [NSNumber numberWithInt:type], indexPath ? indexPath : [NSNull null], newIndexPath ? newIndexPath : [NSNull null], nil];
-    NSArray *keys = [NSArray arrayWithObjects:@"object", @"type", @"indexPath", @"newIndexPath", nil];
-    
-    NSDictionary *change = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+    NSDictionary *change = @{@"object": object,
+                             @"type": @(type),
+                             @"indexPath": indexPath ? indexPath : [NSNull null],
+                             @"newIndexPath": newIndexPath ? newIndexPath : [NSNull null]};
     
     [changes addObject:change];
 }
 
 - (void)controller:(CMSetController *)controller didChangeSection:(id<CMSetControllerSectionInfo>)sectionInfo atIndex:(NSUInteger)index forChangeType:(CMSetControllerChangeType)type
 {
-    NSArray *values = [NSArray arrayWithObjects:[sectionInfo name], [NSNumber numberWithInt:type], [NSNumber numberWithInt:index], nil];
-    NSArray *keys = [NSArray arrayWithObjects:@"section", @"type", @"index", nil];
-    
-    NSDictionary *change = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+    NSDictionary *change = @{@"section": [sectionInfo name],
+                             @"type": @(type),
+                             @"index": @(index)};
     
     [sectionChanges addObject:change];
 }
@@ -77,7 +76,7 @@
 {
     CMSetController *c = [[CMSetController alloc] initWithObserved:nil
                                                         setKeyPath:nil
-                                                          keyPaths:[NSArray array]
+                                                          keyPaths:@[]
                                                 sectionNameKeyPath:nil
                                                    sortDescriptors:nil
                                                           delegate:nil];
@@ -112,9 +111,9 @@
     
     CMSetController *c = [[CMSetController alloc] initWithObserved:self
                                                         setKeyPath:@"set"
-                                                          keyPaths:[NSArray arrayWithObject:@"foo"]
+                                                          keyPaths:@[@"foo"]
                                                 sectionNameKeyPath:nil
-                                                   sortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"description" ascending:YES]]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"description" ascending:YES]]
                                                           delegate:self];
     
     // act
@@ -139,9 +138,9 @@
     
     CMSetController *c = [[CMSetController alloc] initWithObserved:self
                                                         setKeyPath:@"set"
-                                                          keyPaths:[NSArray arrayWithObject:@"foo"]
+                                                          keyPaths:@[@"foo"]
                                                 sectionNameKeyPath:nil
-                                                   sortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"description" ascending:YES]]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"description" ascending:YES]]
                                                           delegate:self];
     // act
     
@@ -168,9 +167,9 @@
     
     CMSetController *c = [[CMSetController alloc] initWithObserved:self
                                                         setKeyPath:@"set"
-                                                          keyPaths:[NSArray arrayWithObject:@"foo"]
+                                                          keyPaths:@[@"foo"]
                                                 sectionNameKeyPath:nil
-                                                   sortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"description" ascending:YES]]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"description" ascending:YES]]
                                                           delegate:self];
     
     set = [NSSet setWithObject:@"one"];
@@ -200,9 +199,9 @@
     
     CMSetController *c = [[CMSetController alloc] initWithObserved:self
                                                         setKeyPath:@"set"
-                                                          keyPaths:[NSArray arrayWithObject:@"description"]
+                                                          keyPaths:@[@"description"]
                                                 sectionNameKeyPath:nil
-                                                   sortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"description" ascending:YES]]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"description" ascending:YES]]
                                                           delegate:self];
     
     set = [NSSet setWithObjects:@"one", @"two", @"three", nil];
@@ -236,9 +235,9 @@
     
     CMSetController *c = [[CMSetController alloc] initWithObserved:self
                                                         setKeyPath:@"set"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     set = [NSSet setWithObjects:
@@ -280,9 +279,9 @@
     CMDocument *doc = [[CMDocument alloc] init];
     CMSetController *c = [[CMSetController alloc] initWithObserved:doc
                                                         setKeyPath:@"friends"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     [doc addFriends:[NSMutableSet setWithObjects:
@@ -322,9 +321,9 @@
     CMDocument *doc = [[CMDocument alloc] init];
     CMSetController *c = [[CMSetController alloc] initWithObserved:doc
                                                         setKeyPath:@"friends"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     [doc addFriends:[NSMutableSet setWithObjects:
@@ -364,9 +363,9 @@
     CMDocument *doc = [[CMDocument alloc] init];
     CMSetController *c = [[CMSetController alloc] initWithObserved:doc
                                                         setKeyPath:@"friends"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     [doc addFriends:[NSMutableSet setWithObjects:
@@ -406,9 +405,9 @@
     CMDocument *doc = [[CMDocument alloc] init];
     CMSetController *c = [[CMSetController alloc] initWithObserved:doc
                                                         setKeyPath:@"friends"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     [doc addFriends:[NSMutableSet setWithObjects:
@@ -454,9 +453,9 @@
     CMDocument *doc = [[CMDocument alloc] init];
     CMSetController *c = [[CMSetController alloc] initWithObserved:doc
                                                         setKeyPath:@"friends"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     [doc addFriends:[NSMutableSet setWithObjects:
@@ -502,9 +501,9 @@
     CMDocument *doc = [[CMDocument alloc] init];
     CMSetController *c = [[CMSetController alloc] initWithObserved:doc
                                                         setKeyPath:@"friends"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     [doc addFriends:[NSMutableSet setWithObjects:
@@ -553,9 +552,9 @@
     CMDocument *doc = [[CMDocument alloc] init];
     CMSetController *c = [[CMSetController alloc] initWithObserved:doc
                                                         setKeyPath:@"friends"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     [doc addFriends:[NSMutableSet setWithObjects:
@@ -598,9 +597,9 @@
     CMDocument *doc = [[CMDocument alloc] init];
     CMSetController *c = [[CMSetController alloc] initWithObserved:doc
                                                         setKeyPath:@"friends"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     CMFriend *friend = [CMFriend friendWithName:@"joe" favoriteColor:@"red" rating:[NSNumber numberWithInt:1]];
@@ -633,9 +632,9 @@
     CMDocument *doc = [[CMDocument alloc] init];
     CMSetController *c = [[CMSetController alloc] initWithObserved:doc
                                                         setKeyPath:@"friends"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     
@@ -675,9 +674,9 @@
     CMDocument *doc = [[CMDocument alloc] init];
     CMSetController *c = [[CMSetController alloc] initWithObserved:doc
                                                         setKeyPath:@"friends"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     
@@ -717,9 +716,9 @@
     CMDocument *doc = [[CMDocument alloc] init];
     CMSetController *c = [[CMSetController alloc] initWithObserved:doc
                                                         setKeyPath:@"friends"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     
@@ -759,9 +758,9 @@
     CMDocument *doc = [[CMDocument alloc] init];
     CMSetController *c = [[CMSetController alloc] initWithObserved:doc
                                                         setKeyPath:@"friends"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     
@@ -802,9 +801,9 @@
     CMDocument *doc = [[CMDocument alloc] init];
     CMSetController *c = [[CMSetController alloc] initWithObserved:doc
                                                         setKeyPath:@"friends"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     
@@ -853,9 +852,9 @@
     CMDocument *doc = [[CMDocument alloc] init];
     CMSetController *c = [[CMSetController alloc] initWithObserved:doc
                                                         setKeyPath:@"friends"
-                                                          keyPaths:[NSArray arrayWithObjects:@"name", @"favoriteColor", nil]
+                                                          keyPaths:@[@"name", @"favoriteColor"]
                                                 sectionNameKeyPath:@"favoriteColor"
-                                                   sortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil]
+                                                   sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"favoriteColor" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
                                                           delegate:self];
     
     
