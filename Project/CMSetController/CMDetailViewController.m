@@ -9,6 +9,9 @@
 #import "CMDetailViewController.h"
 #import <CMSetController.h>
 
+NSString  * const CellIdentifier = @"CellIdentifier";
+
+
 @interface CMDetailViewController () <CMSetControllerDelegate>
 @property (strong, nonatomic) CMSetController *setController;
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -64,6 +67,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
+    
     [self configureView];
 }
 
@@ -154,12 +160,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellId = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     [self configureCell:cell atIndexPath:indexPath];
     

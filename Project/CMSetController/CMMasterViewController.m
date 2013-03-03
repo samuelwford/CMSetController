@@ -10,6 +10,8 @@
 #import "CMDetailViewController.h"
 #import "CMDocument.h"
 
+NSString * const MasterCellIdentifier = @"CellIdentifier";
+
 @interface CMMasterViewController () {
     NSMutableArray *_objects;
 }
@@ -38,6 +40,8 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:MasterCellIdentifier];
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,16 +85,11 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MasterCellIdentifier];
 
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
 
     CMDocument *object = [_objects objectAtIndex:indexPath.row];
     cell.textLabel.text = [object name];
